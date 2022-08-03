@@ -12,7 +12,7 @@ import { Employee } from '../models/employee';
   })
 export class LoginService{
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient, private router: Router){}
     urlStatus: string = environment.employeeService + 'serviceStatus';
     url: string = environment.employeeService + `verifyLogin`;
 
@@ -21,6 +21,7 @@ export class LoginService{
       .post(this.url, employee).subscribe((res)=>{
 
         console.log(res);
+        this.router.navigate(['/home']);
         
       });
   }
