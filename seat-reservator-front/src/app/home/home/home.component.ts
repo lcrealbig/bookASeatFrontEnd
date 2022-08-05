@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HomeService } from 'src/app/services/homeService';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeService: HomeService, private router: Router) { }
+
+  showHints(){
+    this.router.navigate(['/hints']);
+    return this.homeService.showHints();
+  }
+
+  bookASeat(){}
+
+
+
 
   ngOnInit(): void {
   }
